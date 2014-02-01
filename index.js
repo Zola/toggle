@@ -1,3 +1,10 @@
+/**
+ * Toggle
+ *
+ * Toggle labels for the given element.
+ *
+ * Copyright (c) 2014 by Hsiaoming Yang.
+ */
 
 var classes = require('classes');
 var events = require('event');
@@ -27,10 +34,12 @@ function Toggle(el, placeholder) {
   });
 }
 
+// show on label
 Toggle.prototype.on = function() {
   this.placeholder.innerHTML = this.element.getAttribute('data-on');
 };
 
+// show off label
 Toggle.prototype.off = function() {
   this.placeholder.innerHTML = this.element.getAttribute('data-off');
 };
@@ -38,6 +47,9 @@ Toggle.prototype.off = function() {
 module.exports = Toggle;
 
 
+/**
+ * Bind hover event for the given element.
+ */
 function hover(el) {
   events.bind(el, 'mouseenter', function() {
     var text;
