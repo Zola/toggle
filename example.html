@@ -4,9 +4,37 @@
   <meta charset="UTF-8">
   <title>Toggle</title>
   <script src="build/build.js"></script>
+  <style>
+    .container {
+      max-width: 650px;
+      margin: 60px auto;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 0.8em 1.2em;
+      margin: 0;
+      background: #222223;
+      color: #f9f9f8;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+      font: 700 0.8em/1 "Arial", sans-serif;
+      vertical-align: middle;
+      text-align: center;
+      text-decoration: none;
+    }
+    .button.active {
+      background: black;
+    }
+    .button:hover {
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
-  <a class="button" href="#" data-on="Following" data-off="Follow" data-on-hover="Unfollow">Follow</a>
+  <div class="container">
+    <a class="button" href="#" data-on="Following" data-off="Follow" data-on-hover="Unfollow">Follow</a>
+  </div>
   <script>require('toggle')(document.querySelector('a'))</script>
 </body>
 </html>
