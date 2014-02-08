@@ -8,6 +8,7 @@
 
 var classes = require('classes');
 var events = require('event');
+var emitter = require('emitter');
 
 
 function Toggle(el, placeholder) {
@@ -30,21 +31,24 @@ function Toggle(el, placeholder) {
     e.preventDefault();
     if (el._class.has('active')) {
       el._class.remove('active');
-      me.off();
+      me.emit('inactive');
+      me.inactive();
     } else {
       el._class.add('active');
-      me.on();
+      me.emit('active');
+      me.active();
     }
   });
 }
+emitter(Toggle.prototype);
 
 // show on label
-Toggle.prototype.on = function() {
+Toggle.prototype.active = function() {
   this.placeholder.innerHTML = this.dataOn;
 };
 
 // show off label
-Toggle.prototype.off = function() {
+Toggle.prototype.inactive = function() {
   this.placeholder.innerHTML = this.dataOff;
 };
 

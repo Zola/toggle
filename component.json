@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "component/classes": "*",
+    "component/emitter": "*",
     "component/event": "*"
   },
   "development": {},
