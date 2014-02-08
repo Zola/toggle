@@ -16,12 +16,16 @@ function Toggle(el, placeholder) {
   }
   el._class = classes(el);
 
-  hover(el);
-
   var me = this;
   me.element = el;
   me.placeholder = placeholder || el;
 
+  me.dataOn = el.getAttribute('data-on') || '';
+  me.dataOff = el.getAttribute('data-off') || '';
+  me.dataOnHover = el.getAttribute('data-on-hover') || '';
+  me.dataOffHover = el.getAttribute('data-off-hover') || '';
+
+  hover(el, me);
   events.bind(el, 'click', function(e) {
     e.preventDefault();
     if (el._class.has('active')) {
@@ -36,12 +40,12 @@ function Toggle(el, placeholder) {
 
 // show on label
 Toggle.prototype.on = function() {
-  this.placeholder.innerHTML = this.element.getAttribute('data-on');
+  this.placeholder.innerHTML = this.dataOn;
 };
 
 // show off label
 Toggle.prototype.off = function() {
-  this.placeholder.innerHTML = this.element.getAttribute('data-off');
+  this.placeholder.innerHTML = this.dataOff;
 };
 
 module.exports = Toggle;
@@ -50,15 +54,15 @@ module.exports = Toggle;
 /**
  * Bind hover event for the given element.
  */
-function hover(el) {
+function hover(el, ctx) {
   events.bind(el, 'mouseenter', function() {
     var text;
     if (el._class.has('active')) {
       // on
-      text = el.getAttribute('data-on-hover');
+      text = ctx.dataOnHover;
     } else {
       // off
-      text = el.getAttribute('data-off-hover');
+      text = ctx.dataOffHover;
     }
     if (text) {
       el.innerHTML = text;
@@ -67,9 +71,9 @@ function hover(el) {
   events.bind(el, 'mouseleave', function() {
     var text;
     if (el._class.has('active')) {
-      text = el.getAttribute('data-on');
+      text = ctx.dataOn;
     } else {
-      text = el.getAttribute('data-off');
+      text = ctx.dataOff;
     }
     el.innerHTML = text;
   });
