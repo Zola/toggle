@@ -13,8 +13,8 @@
 
 ```js
 toggle(el);
-toggle(el).on();
-toggle(el).off();
+toggle(el).active();
+toggle(el).inactive();
 ```
 
 ## License
