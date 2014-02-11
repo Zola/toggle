@@ -18,7 +18,7 @@ function Toggle(el, placeholder) {
   el._class = classes(el);
 
   var me = this;
-  me.element = el;
+  me.el = el;
   me.placeholder = placeholder || el;
 
   me.dataOn = el.getAttribute('data-on') || '';
