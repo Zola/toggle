@@ -27,6 +27,14 @@ function Toggle(el, placeholder) {
   me.dataOffHover = el.getAttribute('data-off-hover') || '';
 
   hover(el, me);
+
+  // initialize active status
+  if (el._class.has('active')) {
+    me.active();
+  } else {
+    me.inactive();
+  }
+
   events.bind(el, 'click', function(e) {
     e.preventDefault();
     if (el._class.has('active')) {
