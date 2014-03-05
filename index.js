@@ -27,14 +27,6 @@ function Toggle(el, placeholder) {
   me.dataOffHover = el.getAttribute('data-off-hover') || '';
 
   hover(el, me);
-
-  // initialize active status
-  if (el._class.has('active')) {
-    me.active();
-  } else {
-    me.inactive();
-  }
-
   events.bind(el, 'click', function(e) {
     e.preventDefault();
     if (el._class.has('active')) {
@@ -45,6 +37,8 @@ function Toggle(el, placeholder) {
       me.active();
     }
   });
+
+  setTimeout(mark);
 }
 emitter(Toggle.prototype);
 
@@ -89,4 +83,12 @@ function hover(el, ctx) {
     }
     el.innerHTML = text;
   });
+}
+
+function mark(t) {
+  if (t.el._class.has('active')) {
+    t.active();
+  } else {
+    t.inactive();
+  }
 }
