@@ -38,7 +38,7 @@ function Toggle(el, placeholder) {
     }
   });
 
-  setTimeout(mark);
+  setTimeout(mark(me));
 }
 emitter(Toggle.prototype);
 
@@ -86,9 +86,11 @@ function hover(el, ctx) {
 }
 
 function mark(t) {
-  if (t.el._class.has('active')) {
-    t.active();
-  } else {
-    t.inactive();
+  return function() {
+    if (t.el._class.has('active')) {
+      t.active();
+    } else {
+      t.inactive();
+    }
   }
 }
