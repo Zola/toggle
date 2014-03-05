@@ -30,11 +30,9 @@ function Toggle(el, placeholder) {
   events.bind(el, 'click', function(e) {
     e.preventDefault();
     if (el._class.has('active')) {
-      el._class.remove('active');
       me.emit('inactive');
       me.inactive();
     } else {
-      el._class.add('active');
       me.emit('active');
       me.active();
     }
@@ -44,11 +42,13 @@ emitter(Toggle.prototype);
 
 // show on label
 Toggle.prototype.active = function() {
+  this.el._class.add('active');
   this.placeholder.innerHTML = this.dataOn;
 };
 
 // show off label
 Toggle.prototype.inactive = function() {
+  this.el._class.remove('active');
   this.placeholder.innerHTML = this.dataOff;
 };
 
