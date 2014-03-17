@@ -9,6 +9,10 @@
       max-width: 650px;
       margin: 60px auto;
       text-align: center;
+      font: 500 16px/1.6 "Helvetica Neue", Helvetica, sans-serif;
+    }
+    a {
+      color: #444;
     }
     .button {
       display: inline-block;
@@ -34,6 +38,8 @@
 <body>
   <div class="container">
     <a class="button" href="#" data-on="Following" data-off="Follow" data-on-hover="Unfollow">Follow</a>
+    <p><a href="https://github.com/yuehu/toggle">Fork me on GitHub</a></p>
+    <p>A component by <a href="http://lepture.com/">Hsiaoming Yang</a></p>
   </div>
   <script>require('toggle')(document.querySelector('a'))</script>
 </body>
