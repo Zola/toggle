@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
+    "component/query": "*",
     "component/classes": "*",
     "component/emitter": "*",
     "component/event": "*"
@@ -14,5 +15,8 @@
   "main": "index.js",
   "scripts": [
     "index.js"
+  ],
+  "styles": [
+    "toggle.css"
   ]
 }

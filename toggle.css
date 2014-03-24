@@ -1,0 +1,33 @@
+.toggle .toggle-hover-inactive,
+.toggle .toggle-inner-active,
+.toggle .toggle-hover-active {
+  display: none;
+}
+.toggle .toggle-inner-inactive {
+  display: initial;
+}
+/* when active */
+.toggle-active .toggle-inner-inactive {
+  display: none;
+}
+.toggle-active .toggle-inner-active {
+  display: initial;
+}
+
+/* when hover */
+.toggle:hover .toggle-inner-inactive {
+  display: none;
+}
+.toggle:hover .toggle-hover-inactive {
+  display: initial;
+}
+/* when active hover */
+.toggle-active:hover .toggle-inner-active {
+  display: none;
+}
+.toggle-active:hover .toggle-hover-inactive {
+  display: none;
+}
+.toggle-active:hover .toggle-hover-active {
+  display: initial;
+}
