@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Toggle</title>
-  <script src="//polyfill.io"></script>
   <script src="build/build.js"></script>
+  <link rel="stylesheet" href="build/build.css">
   <style>
     .container {
       max-width: 650px;
@@ -29,7 +29,7 @@
       text-align: center;
       text-decoration: none;
     }
-    .button.active {
+    .button.toggle-active {
       background: black;
     }
     .button:hover {
@@ -39,7 +39,11 @@
 </head>
 <body>
   <div class="container">
-    <a class="button" href="#" data-on="Following" data-off="Follow" data-on-hover="Unfollow">Follow</a>
+    <a class="button" href="#">
+      <span class="toggle-inner-active">Following</span>
+      <span class="toggle-inner-inactive">Follow</span>
+      <span class="toggle-hover-active">Unfollow</span>
+    </a>
     <p><a href="https://github.com/yuehu/toggle">Fork me on GitHub</a></p>
     <p>A component by <a href="http://lepture.com/">Hsiaoming Yang</a></p>
   </div>
