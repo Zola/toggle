@@ -22,12 +22,19 @@ function Toggle(el) {
   var me = this;
   me.el = el;
 
+  var repl;
   if (!query('.toggle-hover-active', el)) {
-    query('.toggle-inner-active', el).className += ' toggle-hover-active';
+    repl = query('.toggle-inner-active', el);
+    if (repl) {
+      repl.className += ' toggle-hover-active';
+    }
   }
 
   if (!query('.toggle-hover-inactive', el)) {
-    query('.toggle-inner-inactive', el).className += ' toggle-hover-inactive';
+    repl = query('.toggle-inner-inactive', el);
+    if (repl) {
+      repl.className += ' toggle-hover-inactive';
+    }
   }
 
   events.bind(el, 'click', function(e) {
